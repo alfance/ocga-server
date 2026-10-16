@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <script>
+            // Base path = the directory this index.html was served from (e.g. "/my-repo"), so the
+            // site works under any GitHub Pages project path or at a domain root.
+            (function () {
+                var base = new URL('.', document.baseURI).pathname.replace(/\/$/, '');
+                window.__BASE_PATH__ = base;
+                var params = new URLSearchParams(location.search);
+                var redirected = params.get('p'); // set by 404.html after a deep-link reload
+                var target = redirected != null ? redirected : location.pathname === base + '/' ? '/play' : null;
+                if (target) history.replaceState(null, '', base + target + location.hash);
+            })();
+        </script>
+        <link id="favicon" rel="icon" href="./favicon.ico" />
+        <meta http-equiv="Timing-Allow-Origin" content="self, https://ichnaea-web.netflix.com" />
+        <title>Cloud Games Development Portal</title>
+      <script type="module" crossorigin src="./assets/index-CTqDrwBd.js"></script>
+      <link rel="modulepreload" crossorigin href="./assets/graphql-daVlnb_t.js">
+      <link rel="modulepreload" crossorigin href="./assets/hawkins-assets-BF4YVd_V.js">
+      <link rel="modulepreload" crossorigin href="./assets/hawkins-components-wbrWuSTF.js">
+      <link rel="modulepreload" crossorigin href="./assets/netflix-internal-react-vizkit-BHyrjj_w.js">
+      <link rel="modulepreload" crossorigin href="./assets/hawkins-community-user-authentication-B66hrNN2.js">
+      <link rel="modulepreload" crossorigin href="./assets/tanstack-react-query-C5hnoIU5.js">
+      <link rel="modulepreload" crossorigin href="./assets/lodash-es-Bf6bYm15.js">
+      <link rel="modulepreload" crossorigin href="./assets/netflix-internal-game-input-CNVDx95H.js">
+      <link rel="modulepreload" crossorigin href="./assets/hawkins-table-CU8j-Wml.js">
+      <link rel="stylesheet" crossorigin href="./assets/hawkins-components-C7y3k4sd.css">
+      <link rel="stylesheet" crossorigin href="./assets/netflix-internal-react-vizkit-B_x4p43F.css">
+      <link rel="stylesheet" crossorigin href="./assets/hawkins-table-CYZ-QncZ.css">
+      <link rel="stylesheet" crossorigin href="./assets/index-F-6cZ5T2.css">
+      <link rel="stylesheet" crossorigin href="./assets/inovua-reactdatagrid-enterprise-CnR1iJsX.css">
+    </head>
+    <body>
+        <div id="app" class="app-layout"></div>
+    </body>
+    <style>
+        html,
+        body {
+            margin: 0;
+        }
+        .app-layout {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</html>

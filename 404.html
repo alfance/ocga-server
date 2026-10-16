@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Redirecting...</title>
+        <script>
+            // GitHub Pages serves this file for any unknown path. Send the visitor to the app's
+            // index.html with the original path in ?p= so index.html can restore it.
+            // On *.github.io project sites the first path segment is the repo name. On a custom
+            // domain or user/org site (served from "/") set SEGMENTS_TO_KEEP to 0.
+            var SEGMENTS_TO_KEEP = location.hostname.endsWith('github.io') ? 1 : 0;
+            var segs = location.pathname.split('/');
+            var base = segs.slice(0, 1 + SEGMENTS_TO_KEEP).join('/');
+            var rest = '/' + segs.slice(1 + SEGMENTS_TO_KEEP).join('/');
+            // Guard: never redirect twice (e.g. a wrong SEGMENTS_TO_KEEP would otherwise loop forever).
+            if (location.search.indexOf('p=') === -1) {
+                location.replace(location.origin + base + '/?p=' + encodeURIComponent(rest + location.search) + location.hash);
+            } else {
+                document.body.textContent = 'Page not found. Open the site root instead.';
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

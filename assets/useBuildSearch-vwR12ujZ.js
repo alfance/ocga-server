@@ -1,0 +1,2 @@
+import{u as useQuery}from"./tanstack-react-query-C5hnoIU5.js";const BUILD_SEARCH_QUERY_KEY="builds",useBuildSearch=(gameId,displayName)=>useQuery({queryKey:[BUILD_SEARCH_QUERY_KEY,gameId,displayName],gcTime:0,enabled:!!gameId,queryFn:async()=>await(await fetch(`/api/games/${gameId}/builds/search?displayName=${displayName}`)).json()});export{useBuildSearch as u};
+//# sourceMappingURL=useBuildSearch-vwR12ujZ.js.map
