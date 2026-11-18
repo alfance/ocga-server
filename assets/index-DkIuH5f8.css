@@ -2,3 +2,9 @@
 
 /* doubled class beats the dockview styles injected at runtime by the app bundle */
 .dockview-theme-abyss.dockview-theme-abyss{--dv-inactivegroup-visiblepanel-tab-background-color:var(--hawkins-theme-surface-mid);--dv-activegroup-visiblepanel-tab-background-color:var(--hawkins-theme-surface-mid);--dv-separator-border:var(--hawkins-theme-surface-high);--dv-tab-divider-color:var(--hawkins-theme-surface-high);--dv-paneview-header-border-color:var(--hawkins-theme-surface-high);--dv-group-view-background-color:var(--hawkins-theme-surface-mid)}
+
+.composer-tab{--cb:#2d2d2d;position:fixed;right:0;top:calc(76px + var(--ga-banner-h,0px));z-index:50;width:32px;height:40px;padding:0;display:flex;align-items:center;justify-content:center;border:1px solid transparent;border-right:0;border-radius:8px 0 0 8px;background:linear-gradient(var(--cb),var(--cb)) padding-box,linear-gradient(180deg,#4061e7,#e5486f) border-box;color:var(--hawkins-theme-foreground,#fff);cursor:pointer;box-shadow:-2px 2px 8px rgba(0,0,0,.4)}
+.composer-tab:hover{width:36px}
+body>.dv-dockview .dv-tabs-and-actions-container{display:none!important}
+
+._banner_1ud11_1{height:48px;max-height:48px;overflow:hidden;align-items:center;padding-top:0;padding-bottom:0}

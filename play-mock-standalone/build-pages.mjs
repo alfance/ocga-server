@@ -44,6 +44,7 @@ const assetsDir = path.join(out, 'assets');
 let absoluteAssetStrings = 0;
 let preloadHelpers = 0;
 let routerBasenames = 0;
+let composerFrames = 0;
 
 for (const file of fs.readdirSync(assetsDir).filter(f => f.endsWith('.js'))) {
     const filePath = path.join(assetsDir, file);
@@ -76,11 +77,19 @@ for (const file of fs.readdirSync(assetsDir).filter(f => f.endsWith('.js'))) {
         routerBasenames++;
     }
 
+    // Game Assistant side panel iframe (composer/) -> base-prefixed
+    const composerFrom = 'src:"/composer/composer.html"';
+    if (text.includes(composerFrom)) {
+        text = replaceExactly(text, composerFrom, `src:(${BASE}+"/composer/composer.html")`, 1, file);
+        composerFrames++;
+    }
+
     if (text !== original) fs.writeFileSync(filePath, text);
 }
 
 if (absoluteAssetStrings !== 14) throw new Error(`expected 14 absolute asset strings, patched ${absoluteAssetStrings}`);
 if (preloadHelpers !== 1) throw new Error(`expected 1 preload helper, patched ${preloadHelpers}`);
+if (composerFrames !== 1) throw new Error(`expected 1 composer iframe, patched ${composerFrames}`);
 if (routerBasenames !== 1) throw new Error(`expected 1 router basename, patched ${routerBasenames}`);
 
 // --- index.html ---------------------------------------------------------------------------------
@@ -103,7 +112,15 @@ html = replaceExactly(html, 'src="/assets/', 'src="./assets/', 1, 'index.html sr
 // Keep <meta charset> within the first 1024 bytes, so the script goes right after it.
 const charsetMeta = '<meta charset="utf-8" />';
 html = replaceExactly(html, charsetMeta, `${charsetMeta}\n        ${bootScript}`, 1, 'index.html head');
+html = replaceExactly(html, 'src="/ga-bridge.js"', 'src="./ga-bridge.js"', 1, 'index.html ga-bridge');
 fs.writeFileSync(path.join(out, 'index.html'), html);
+
+// --- ga-bridge.js (Game Assistant side panel) -----------------------------------------------------
+const bridgePath = path.join(out, 'ga-bridge.js');
+let bridge = fs.readFileSync(bridgePath, 'utf8');
+bridge = replaceExactly(bridge, 'src="/composer/', `src="' + ${BASE} + '/composer/`, 3, 'ga-bridge src');
+bridge = replaceExactly(bridge, "window.open('/composer/composer.html'", `window.open(${BASE} + '/composer/composer.html'`, 1, 'ga-bridge popout');
+fs.writeFileSync(bridgePath, bridge);
 
 // --- 404.html (SPA fallback for reloads of /<repo>/play) -------------------------------------------
 const notFound = `<!DOCTYPE html>

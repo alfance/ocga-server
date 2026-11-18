@@ -1,0 +1,154 @@
+
+/* ── Spacing polish ───────────────────────────────────────────────────── */
+.history { padding: 8px; }
+.composer { padding: 0 8px; }
+.blk.report { padding: 24px 24px 20px; line-height: 24px; }
+.blk.report h3 { margin: 0 0 16px; font-size: 20px; line-height: 28px; }
+.blk.report h4 { margin: 24px 0 8px; font-size: 15px; line-height: 22px; }
+.blk.report p { margin: 0 0 16px; }
+.blk.report p:last-of-type { margin-bottom: 0; }
+.blk.report table { margin: 0 0 8px; }
+.blk.report th, .blk.report td { padding: 8px 14px; }
+.blk.report ol { margin: 0 0 16px; padding-left: 24px; }
+.blk.report li { margin-bottom: 8px; }
+.blk.report .btns { margin-top: 20px; }
+.blk.report .ok-line + table { margin-top: 16px; }
+.blk.report .ok-line { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; font-weight: 600; }
+.ok-ic { width: 16px; height: 16px; flex: none; background: #46d369; -webkit-mask: url(icons/checkmark.svg) center / contain no-repeat; mask: url(icons/checkmark.svg) center / contain no-repeat; }
+
+/* ── Inline approval card (Hawkins "Chat Inline Approval") ───────────── */
+.blk.approval { padding: 0; background: #1a1a1a; border: 1px solid var(--border-subtle); border-radius: 4px; }
+.ap-body { padding: 16px 16px 8px; display: flex; flex-direction: column; gap: 4px; }
+.ap-title { font-size: 13px; line-height: 20px; font-weight: 600; color: var(--foreground); }
+.ap-desc { font-size: 10px; line-height: 15px; color: rgba(255,255,255,.7); }
+.ap-details { margin-top: 8px; padding: 8px; border: 1px solid var(--border-dim); border-radius: 4px; background: rgba(128,128,128,.08); font-size: 10px; line-height: 16px; color: rgba(255,255,255,.7); }
+.ap-foot { display: flex; align-items: center; justify-content: space-between; padding: 8px 16px 16px; }
+.ap-actions { display: flex; align-items: center; gap: 8px; }
+.abtn { padding: 10px 12px; border-radius: 4px; font-size: 13px; line-height: 20px; font-weight: 600; white-space: nowrap; color: var(--foreground); }
+.abtn.secondary { border: 1px solid var(--border-subtle); background: transparent; }
+.abtn.destructive { border: 1px solid rgba(229,9,20,.4); background: transparent; color: #ff5a5f; }
+.abtn.tertiary { border: 0; background: transparent; }
+.abtn:hover:not(:disabled) { background: rgba(255,255,255,.08); }
+.abtn:disabled { opacity: .45; cursor: default; }
+
+/* ── Answer containers: no borders, faded fill ────────────────────────── */
+.blk.report, .blk.outline, .blk.approval { border: 0; background: rgba(128,128,128,.12); }
+.ap-details { border: 0; background: rgba(128,128,128,.14); }
+.history { padding: 4px; }
+.composer { padding: 0 4px; }
+.clear { font-size: 12px; line-height: 18px; padding: 4px 8px; }
+
+/* ── Padding: 8px from the panel edge, 4px inside answer bubbles ─────── */
+.history { padding: 0; }
+.composer { padding: 0; }
+.blk.report { padding: 4px; }
+
+/* ── Padding: 8px around the assistant content (on top of the 8px page inset) ── */
+.history { padding: 8px; }
+.composer { padding: 0 8px; }
+
+/* ── Report bubbles: 6px of padding around the content (inside the 4px bubble padding) ── */
+.blk.report .rc { padding: 6px; }
+
+/* ── Typography: Semibold (600) like the Figma type tokens, instead of the browser's Bold (700) ── */
+.blk b, .blk strong, .blk h3, .blk h4, .chk b { font-weight: 600; }
+
+/* ── History / Clear conversation bar ─────────────────────────────────── */
+.hbar { align-self: flex-end; display: flex; align-items: center; gap: 4px; }
+.hbar .clear { align-self: auto; }
+.history:has(.empty) { justify-content: flex-start; }
+.history:has(.empty) .empty { margin: auto 0; }
+
+/* ── Compact model dropdown + "continue in MCP" robot menu ─────────────── */
+.field { height: 24px; padding: 0 8px; gap: 4px; }
+.field img { width: 12px; height: 12px; }
+.mcp { position: relative; margin-right: -4px; }
+.mcp-btn { height: 24px; padding: 0 4px; display: inline-flex; align-items: center; gap: 2px; border-radius: 4px; }
+.mcp-btn:hover, .mcp-btn[aria-expanded="true"] { background: rgba(255,255,255,.1); }
+.mcp .menu { left: 0; right: auto; bottom: 28px; min-width: 120px; }
+.mcp-btn::after { content: attr(data-tip); position: absolute; left: 0; bottom: 30px; padding: 4px 8px; border-radius: 4px; background: #1e1e1e; border: 1px solid var(--border-dim); font-size: 10px; line-height: 15px; white-space: nowrap; color: var(--foreground); pointer-events: none; opacity: 0; transition: opacity .12s; z-index: 2; }
+.mcp-btn:hover::after { opacity: 1; transition-delay: .3s; }
+.mcp-btn[aria-expanded="true"]::after { display: none; }
+
+/* ══ Figma "Game Assistant — Playability check" (Kylo-Presentation-2026, node 540:49774) ══ */
+:root {
+  --surface-low: #232323;
+  --foreground-dim: rgba(255,255,255,.5);
+  --border-gen-ai-start: #5b79f1;
+  --border-elevation: rgba(255,255,255,.04);
+  --border-subtle: rgba(255,255,255,.4);
+  --border-dim: rgba(255,255,255,.2);
+  --dropdown--surface: rgba(255,255,255,.04);
+  --button--surface-primary-disabled: rgba(64,97,231,.4);
+  --success-surface: #195d3a;
+  --success-accent: #37d565;
+  --text-muted: #999;
+  --font-chat: Arimo, Arial, "Liberation Sans", Helvetica, sans-serif;
+  --font-inter: Inter, "Segoe UI", system-ui, sans-serif;
+}
+body { padding: 0; background: var(--surface-low); font-family: var(--font-chat); }
+.field, .abtn, .btn, .context .label, .menu li, .mcp-btn::after { font-family: var(--font); }
+
+/* Conversation */
+.history { padding: 0; gap: 0; }
+.msg.user { padding: 8px; }
+.msg.user .bubble { max-width: 100%; padding: 8px 12px; border-radius: 16px; background: #383838; font-size: 13.5px; line-height: 20px; color: #fff; }
+.msg.ai, .msg.blkmsg { padding: 6px 12px; }
+.msg.user + .msg.blkmsg, .msg.user + .msg.ai { padding-top: 8px; }
+.ai-bubble { padding: 8px 12px; font-size: 14px; line-height: 20px; color: #fff; }
+.blk { font-size: 14px; line-height: 20px; color: #fff; }
+.blk.card { padding: 8px 12px; background: var(--surface-mid); border-radius: 4px; }
+.blk.card strong { font-weight: 700; }
+.blk.card:has(.chk) { background: transparent; }
+.blk.success { display: flex; align-items: center; min-height: 36px; padding: 8px 8px 8px 15px; background: var(--success-surface); border-left: 4px solid var(--success-accent); border-radius: 4px; }
+.chk { gap: 5px; }
+.chk .mk { width: auto; }
+.chk.done .mk { color: var(--success-accent); }
+.step .icon { background: var(--surface-low); }
+
+/* Checkpoint / approval card (Cortex / Primitive / Checkpoint) */
+.blk.approval { display: flex; flex-direction: column; gap: 8px; padding: 16px; background: var(--surface-mid); border: 1px solid var(--border-elevation); border-radius: 8px; }
+.ap-body { padding: 0; gap: 8px; }
+.ap-title { font-family: var(--font-inter); font-size: 14px; line-height: normal; font-weight: 500; color: var(--foreground); }
+.ap-desc { font-family: var(--font-inter); font-size: 12px; line-height: normal; color: var(--foreground-dim); }
+.ap-details { background: rgba(255,255,255,.04); color: var(--foreground-dim); }
+.ap-foot { padding: 0; }
+.abtn { min-height: 24px; padding: 4px 8px; border-radius: 4px; font-size: 10px; line-height: 15px; font-weight: 600; }
+.abtn.primary { background: var(--button--surface-primary); border: 1px solid transparent; color: #fff; }
+.abtn.secondary { border: 1px solid var(--border-subtle); }
+.abtn.tertiary { color: var(--foreground-dim); }
+.abtn.primary:hover:not(:disabled) { background: var(--button--surface-primary); filter: brightness(1.15); }
+
+/* Prompt composer */
+.composer { padding: 2px 12px 12px; gap: 16px; }
+.container { padding: 1px; border-radius: 4px; }
+.area { padding: 12px; gap: 8px; border-radius: 3px; background: var(--surface-mid); }
+.text { font-family: var(--font-chat); font-size: 14px; line-height: 21px; }
+.text:empty::before { color: var(--text-muted); }
+.toolbar { min-height: 32px; gap: 4px; }
+.left { gap: 4px; }
+.right { gap: 12px; }
+.icon-btn { height: 24px; min-width: 24px; padding: 4px; }
+.field { height: 32px; min-height: 32px; padding: 0 12px; gap: 12px; background: var(--dropdown--surface); border: 1px solid var(--border-dim); border-radius: 4px; font-size: 10px; line-height: 15px; color: var(--foreground); }
+.field img { width: 16px; height: 16px; }
+.menu { bottom: 36px; }
+.send { width: 32px; height: 32px; padding: 4px; background: var(--button--surface-primary); border-radius: 4px; }
+.send:disabled { opacity: 1; background: var(--button--surface-primary-disabled); cursor: not-allowed; }
+.send:disabled img { opacity: .4; }
+
+/* Bottom bar: BETA label + History + Clear conversation */
+.actions { display: flex; align-items: center; justify-content: flex-end; gap: 20px; font-family: var(--font-chat); font-size: 11px; line-height: normal; }
+.beta { flex: 1; min-width: 0; color: var(--text-muted); white-space: nowrap; }
+.act { display: inline-flex; align-items: center; gap: 5px; color: var(--foreground); white-space: nowrap; }
+.act:hover { opacity: .7; }
+.act img { display: block; flex: none; }
+
+/* ══ Consistent gutters: every message type sits 12px from the panel edges, 6px between messages ══ */
+.msg, .msg.ai, .msg.blkmsg, .msg.user { padding: 6px 12px; }
+.msg.user + .msg, .msg + .msg.user { padding-top: 8px; }
+.history { padding: 0 0 8px; }
+.reasoning { padding: 0 0 4px; }
+.ai-bubble { padding: 4px 0; }
+.rx { padding: 0; }
+.pill { margin: 0; }
+.blk-meta { padding: 2px 0 0; }
