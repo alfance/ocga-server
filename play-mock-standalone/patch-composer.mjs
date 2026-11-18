@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+const js='index-Y4llPcQR.js', css='index-DkIuH5f8.css';
+let s=fs.readFileSync(js,'utf8');
+const rep=(a,b)=>{const n=s.split(a).length-1;if(n!==1)throw new Error(n+' matches for '+a.slice(0,60));s=s.replace(a,()=>b);};
+rep('settings:SettingsPanelView}','settings:SettingsPanelView,composer:()=>jsxRuntimeExports.jsx("iframe",{src:"/composer/composer.html",title:"Message Composer",style:{width:"100%",height:"100%",border:0,display:"block",background:"transparent"}})}');
+rep('{id:"qr",defaultWidth:230}]','{id:"qr",defaultWidth:230},{id:"composer",defaultWidth:300}]');
+rep('[showSettingsPanel,setShowSettingsPanel]=reactExports.useState(!1),','[showSettingsPanel,setShowSettingsPanel]=reactExports.useState(!1),[composerOpen,setComposerOpen]=reactExports.useState(!1),');
+rep('setShowSettingsPanel(!0))},[]);return headless?','setShowSettingsPanel(!0))},[]),handleComposerToggle=reactExports.useCallback(()=>{const api=dockApiRef.current;if(!api)return;const p=api.getPanel("composer");p?(p.group.api.setVisible(!0),p.api.setActive()):api.addPanel({id:"composer",component:"composer",title:"Message Composer",position:{direction:"right"},initialWidth:300}),setComposerOpen(!0)},[]);return headless?');
+rep('setupFixedPanelWidths(event.api),','setupFixedPanelWidths(event.api),event.api.onDidLayoutChange(()=>{const p=event.api.getPanel("composer");setComposerOpen(!!p&&p.group.api.isVisible)}),');
+rep('jsxRuntimeExports.jsx("div",{className:"sr-dock-container dockview-theme-abyss"','!composerOpen&&jsxRuntimeExports.jsx("button",{className:"composer-tab",type:"button",title:"Open Message Composer","aria-label":"Open Message Composer",onClick:handleComposerToggle,children:[jsxRuntimeExports.jsx("svg",{key:"i",width:14,height:14,viewBox:"0 0 16 16",fill:"currentColor","aria-hidden":"true",children:jsxRuntimeExports.jsx("path",{d:"M6 1l1.4 3.6L11 6 7.4 7.4 6 11 4.6 7.4 1 6l3.6-1.4L6 1zm6 6l.9 2.1L15 10l-2.1.9L12 13l-.9-2.1L9 10l2.1-.9L12 7z"})}),jsxRuntimeExports.jsx("span",{key:"t",children:"AI"})]}),jsxRuntimeExports.jsx("div",{className:"sr-dock-container dockview-theme-abyss"');
+fs.writeFileSync(js,s);
+let c=fs.readFileSync(css,'utf8');
+c+='\n.composer-tab{position:fixed;right:0;top:140px;z-index:50;width:30px;padding:10px 0 14px;display:flex;flex-direction:column;align-items:center;gap:6px;border:0;border-radius:8px 0 0 8px;background:linear-gradient(180deg,#4061e7,#e5486f);color:#fff;font:600 11px/1 var(--hawkins-typography-font-family-sans,system-ui);cursor:pointer;box-shadow:-2px 2px 8px rgba(0,0,0,.4)}\n.composer-tab:hover{width:34px}\n';
+fs.writeFileSync(css,c);

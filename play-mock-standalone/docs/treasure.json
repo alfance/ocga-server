@@ -1,0 +1,10 @@
+{
+    "rules": [
+        {
+            "pattern": "**{.html,.json,.csv,.txt,.js,.ts}",
+            "headers": {
+                "Cache-Control": "no-cache"
+            }
+        }
+    ]
+}

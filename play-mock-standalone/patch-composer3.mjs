@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+const js='index-Y4llPcQR.js', css='index-DkIuH5f8.css';
+let s=fs.readFileSync(js,'utf8');
+const rep=(a,b,n0=1)=>{const n=s.split(a).length-1;if(n!==n0)throw new Error(n+' matches for '+a.slice(0,60));s=s.split(a).join(b);};
+rep('title:"Message Composer",style','title:"Game Assistant",style');
+rep('{id:"composer",defaultWidth:300}','{id:"composer",defaultWidth:400}');
+rep('title:"Message Composer",position:{direction:"right"},initialWidth:300','title:"Game Assistant",position:{direction:"right"},initialWidth:400');
+rep('let prev="grid",w=300;','let prev="grid",w=400;');
+rep('title:"Open Message Composer","aria-label":"Open Message Composer"','title:"Open Game Assistant","aria-label":"Open Game Assistant"');
+fs.writeFileSync(js,s);
+let c=fs.readFileSync(css,'utf8');
+c+='body>.dv-dockview .dv-tabs-and-actions-container{display:none!important}\n';
+fs.writeFileSync(css,c);
