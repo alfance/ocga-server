@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Assistant</title>
+<link rel="stylesheet" href="composer.css">
+<link rel="stylesheet" href="history.css">
+<link rel="stylesheet" href="polish.css">
+</head>
+<body>
+<div class="history" id="history" aria-live="polite"></div>
+<div class="composer" id="composer">
+  <div class="container">
+    <div class="area">
+      <div class="attachments" id="attachments">
+        <div class="attachment" hidden>
+          <span class="file-name">script-final.pdf</span>
+          <img src="icons/pdf.svg" width="12" height="12" alt="">
+          <button class="remove" aria-label="Remove attachment" data-remove="attachment">&times;</button>
+        </div>
+      </div>
+      <div class="text" id="text" contenteditable="true" role="textbox" aria-label="Message" data-placeholder="Ask anything"></div>
+      <div class="toolbar">
+        <div class="left">
+          <button class="icon-btn" aria-label="Add"><img src="icons/plus.svg" width="16" height="16" alt=""></button>
+          <div class="context" id="context" hidden>
+            <img src="icons/database.svg" width="12" height="12" alt="">
+            <span class="label">Q326 Content planning guide</span>
+            <button class="icon-btn" aria-label="Remove context" id="removeContext"><img src="icons/x.svg" width="12" height="12" alt=""></button>
+          </div>
+        </div>
+        <div class="right">
+          <div class="mcp" id="mcp">
+            <button class="mcp-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Continue conversation in MCP" data-tip="Continue conversation in MCP"><img class="ic" src="icons/robot.svg" width="16" height="16" alt=""><img src="icons/caret-down.svg" width="12" height="12" alt=""></button>
+            <ul class="menu" role="menu" hidden>
+              <li role="menuitem">Slack</li>
+              <li role="menuitem" data-url="https://claude.ai/new">Claude</li>
+            </ul>
+          </div>
+          <div class="dropdown" id="dropdown">
+            <button class="field" aria-haspopup="listbox" aria-expanded="false"><span id="ddLabel">Netflix Games</span><img src="icons/caret-down.svg" width="16" height="16" alt=""></button>
+            <ul class="menu" role="listbox" hidden>
+              <li role="option">Netflix Games</li>
+              <li role="option">Go/Ask</li>
+              <li role="option">Go/Search</li>
+            </ul>
+          </div>
+          <button class="send" id="send" aria-label="Send"><img src="icons/arrow-up.svg" width="16" height="16" alt=""></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="disclosure" hidden>Uses AI. Check important details.</p>
+  <div class="actions">
+    <span class="beta">BETA version 0.5</span>
+    <button class="act" data-act="history"><img src="icons/history.svg" width="12" height="12" alt="">History</button>
+    <button class="act" data-act="clear"><img src="icons/refresh-xs.svg" width="12" height="12" alt="">Clear conversation</button>
+  </div>
+</div>
+<script src="scenarios.js"></script>
+<script src="composer.js"></script>
+</body>
+</html>
