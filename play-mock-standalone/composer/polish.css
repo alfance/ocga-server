@@ -113,7 +113,7 @@ body { padding: 0; background: var(--surface-low); font-family: var(--font-chat)
 .ap-desc { font-family: var(--font-inter); font-size: 12px; line-height: normal; color: var(--foreground-dim); }
 .ap-details { background: rgba(255,255,255,.04); color: var(--foreground-dim); }
 .ap-foot { padding: 0; }
-.abtn { min-height: 24px; padding: 4px 8px; border-radius: 4px; font-size: 10px; line-height: 15px; font-weight: 600; }
+.abtn { min-height: 32px; padding: 6px 16px; border-radius: 4px; font-size: 13px; line-height: 20px; font-weight: 600; }
 .abtn.primary { background: var(--button--surface-primary); border: 1px solid transparent; color: #fff; }
 .abtn.secondary { border: 1px solid var(--border-subtle); }
 .abtn.tertiary { color: var(--foreground-dim); }
